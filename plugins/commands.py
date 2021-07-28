@@ -22,7 +22,7 @@ async def start(client, message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "⭕️ JOIN OUR CHANNEL ⭕️", url="https://t.me/Trolldcompany")
+                            "⚜JOIN OUR CHANNEL⚜", url="https://t.me/TeleXMoviesChannel")
                     ]
                 ]
             ),
@@ -45,7 +45,7 @@ async def help(client, message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "⭕️ SUPPORT ⭕️", url="https://t.me/n_a_c_bot_developers")
+                            "⚡JOIN OUR GROUP⚡", url="https://t.me/teleXmovies")
                     ]
                 ]
             ),
