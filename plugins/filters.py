@@ -101,7 +101,7 @@ async def filter(client: Bot, message: Message):
         )
 
         await message.reply_text(
-                f"{update.message.reply_text}<b> Here is the result for {message.text}</b>",
+                f"{reply_text}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
