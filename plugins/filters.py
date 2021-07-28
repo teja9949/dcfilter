@@ -95,7 +95,7 @@ async def filter(client: Bot, message: Message):
 
     if len(message.text) > 2:    
         btn = []
-        async for msg in client.USER.search_messages(MAINCHANNEL_ID,query=message.text,ans,filter='document'):
+        async for msg in client.USER.search_messages(MAINCHANNEL_ID,query=message.text,ans='',filter='document'):
             file_name = msg.document.file_name
             msg_id = msg.message_id                     
             link = msg.link
