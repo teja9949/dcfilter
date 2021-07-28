@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 
 def reply(update, context):
-    movie_name=update.text
+    movie_name=update.message.text
     search = ia.search_movie(movie_name)
 
     id='tt'+search[0].movieID
