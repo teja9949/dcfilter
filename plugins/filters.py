@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 
 def reply(update, context):
-    movie_name=message.text
+    movie_name=update.text
     search = ia.search_movie(movie_name)
 
     id='tt'+search[0].movieID
@@ -97,7 +97,7 @@ async def filter(client: Bot, message: Message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
             await message.reply_text(
-                f"{message.text}<b> Here is the result for {message.text}</b>",
+                f"{update.message.reply_text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )
 
@@ -112,7 +112,7 @@ async def filter(client: Bot, message: Message):
         )
 
         await message.reply_text(
-                f"{message.text}<b> Here is the result for {message.text}</b>",
+                f"{update.message.reply_text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
