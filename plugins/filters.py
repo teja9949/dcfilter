@@ -25,6 +25,32 @@ from bot import Bot
 from script import script
 from config import MAINCHANNEL_ID
 
+def reply(update, context):
+    movie_name=update.message.text
+    search = ia.search_movie(movie_name)
+
+    id='tt'+search[0].movieID
+    
+    url= 'http://www.omdbapi.com/?i='+id+'&apikey='+api_key
+    
+    x=urllib.request.urlopen(url)
+    
+    for line in x:
+        x=line.decode()
+    
+    data=json.loads(x)
+
+    ans=''
+    ans+='*'+data['Title']+'* ('+data['Year']+')'+'\n\n'
+    ans+='*IMDb Rating*: '+data['imdbRating']+' \n'
+    ans+='*Cast*: '+data['Actors']+'\n'
+    ans+='*Genre*: '+data['Genre']+'\n\n'
+    ans+='*Plot*: '+data['Plot']+'\n'
+    ans+='[.]('+data['Poster']+')'
+    update.message.reply_text(ans,parse_mode='markdown')  
+
+
+
 
 
 BUTTONS = {}
@@ -60,7 +86,7 @@ async def filter(client: Bot, message: Message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
             await message.reply_text(
-                f"<b> Here is the result for {message.text}</b>",
+                f"{ans}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )
 
@@ -75,7 +101,7 @@ async def filter(client: Bot, message: Message):
         )
 
         await message.reply_text(
-                f"<b> Here is the result for {message.text}</b>",
+                f"{ans}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
