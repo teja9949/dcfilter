@@ -25,6 +25,10 @@ from bot import Bot
 from script import script
 from config import MAINCHANNEL_ID
 
+def error(update, context):
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+
 def reply(update, context):
     movie_name=update.message.text
     search = ia.search_movie(movie_name)
