@@ -49,6 +49,8 @@ def reply(update, context):
     ans+='[.]('+data['Poster']+')'
     update.message.reply_text(ans,parse_mode='markdown')  
 
+if __name__ == '__main__':
+    main()
 
 
 BUTTONS = {}
