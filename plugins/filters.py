@@ -35,6 +35,16 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def start(update, context):
+    update.message.reply_text('Hi! \nWelcome to the *IMDb Bot*. \nSend me the name of any movie or TV show to get its details. \nHappy viewing! \n \nCreated by [Karan Malik](https://karan-malik.github.io)',parse_mode='markdown')
+
+
+def help(update, context):
+    update.message.reply_text('Send me the name of any movie to get its details. \nTry out "Avengers Endgame"')
+
+def error(update, context):
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
 
 def reply(update, context):
     movie_name=update.message.text
@@ -59,9 +69,6 @@ def reply(update, context):
     ans+='*Plot*: '+data['Plot']+'\n'
     ans+='[.]('+data['Poster']+')'
     update.message.reply_text(ans,parse_mode='markdown')  
-
-if __name__ == '__main__':
-    main()
 
 
 BUTTONS = {}
@@ -97,7 +104,7 @@ async def filter(client: Bot, message: Message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
             await message.reply_text(
-                f"update.message.reply_text(ans,parse_mode='markdown')<b> Here is the result for {message.text}</b>",
+                f"{update.message.reply_text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )
 
@@ -112,7 +119,7 @@ async def filter(client: Bot, message: Message):
         )
 
         await message.reply_text(
-                f"update.message.reply_text(ans,parse_mode='markdown')<b> Here is the result for {message.text}</b>",
+                f"{update.message.reply_text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
