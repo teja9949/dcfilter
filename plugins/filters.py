@@ -7,6 +7,10 @@ import re
 import pyrogram
 import urllib.request
 import imdb
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 from pyrogram import (
     filters,
@@ -50,8 +54,6 @@ def reply(update, context):
 
 
 
-
-
 BUTTONS = {}
  
 @Client.on_message(filters.group & filters.text)
@@ -85,7 +87,7 @@ async def filter(client: Bot, message: Message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
             await message.reply_text(
-                f"{ans}<b> Here is the result for {message.text}</b>",
+                f"{message.ans}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )
 
@@ -100,7 +102,7 @@ async def filter(client: Bot, message: Message):
         )
 
         await message.reply_text(
-                f"{ans}<b> Here is the result for {message.text}</b>",
+                f"{message.ans}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
