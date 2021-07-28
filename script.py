@@ -17,14 +17,14 @@ Join Our Movies Group @TeleXMovies <i>help</i></b>"""
 <b>© @TeleXMoviesChannel\n @TeleXMovies\n @TeleXSeries</b>"""
 
 
-    ABOUT_MSG = """⭕️<b>My Name : SAM 😊</b>
+    ABOUT_MSG = """☆<b>My Name : SAM 😊</b>
     
-⭕️<b>Creater :</b> @Teja_9949
+☆<b>Creater :</b> @Teja_9949
 
-⭕️<b>Language :</b> <code>Python3</code>
+☆<b>Language :</b> <code>Python3</code>
 
-⭕️<b>Library :</b> <a href='https://docs.pyrogram.org/'>Pyrogram 1.0.7</a> 
+☆<b>Library :</b> <a href='https://docs.pyrogram.org/'>Pyrogram 1.0.7</a> 
 
-⭕️<b>Join Our Group :</b> <a href='https://t.me/teleXmovies'>click here</a> 
+☆<b>Join Our Group :</b> <a href='https://t.me/teleXmovies'>click here</a> 
 
 """
