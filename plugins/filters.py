@@ -5,7 +5,6 @@
 
 import re
 import pyrogram
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import urllib.request
 import imdb
 
