@@ -90,7 +90,7 @@ BUTTONS = {}
  
 @Client.on_message(filters.group & filters.text)
 async def filter(client: Bot, message: Message):
-    if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text, update.message.reply_text(ans,parse_mode='markdown')):
+    if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
         return
 
     if len(message.text) > 2:    
@@ -119,7 +119,7 @@ async def filter(client: Bot, message: Message):
                 [InlineKeyboardButton(text="📃 Pages 1/1",callback_data="pages")]
             )
             await message.reply_text(
-                f"{reply_text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
+                f"{message.text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )
 
@@ -134,7 +134,7 @@ async def filter(client: Bot, message: Message):
         )
 
         await message.reply_text(
-                f"{reply_text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
+                f"{message.text(ans,parse_mode='markdown')}<b> Here is the result for {message.text}</b>",
                 reply_markup=InlineKeyboardMarkup(buttons)
             )    
 
