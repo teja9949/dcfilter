@@ -5,6 +5,9 @@
 
 import re
 import pyrogram
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import urllib.request
+import imdb
 
 from pyrogram import (
     filters,
@@ -21,6 +24,8 @@ from pyrogram.types import (
 from bot import Bot
 from script import script
 from config import MAINCHANNEL_ID
+
+
 
 BUTTONS = {}
  
