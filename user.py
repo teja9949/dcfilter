@@ -22,7 +22,7 @@ class User(Client):
         super().__init__(
             TG_USER_SESSION,
             api_hash=API_HASH,
-            api_id=APP_ID,
+            api_id=APP_id,
             workers=TG_BOT_WORKERS
         )
         self.LOGGER = LOGGER
@@ -36,7 +36,7 @@ class User(Client):
         )
         return (self, usr_bot_me.id)
 
-    async def stop(self, *args):
+    async def stop(self, args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped. Bye.")
  
